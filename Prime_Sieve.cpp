@@ -4,6 +4,7 @@
 using namespace std;
 
 bool isPrime(int n){
+    //T.C => BigO(sqrt(n))
     for (int i=2 ; i<=sqrt(n) ; i++){
         if(n%i == 0){
             return false;
@@ -27,7 +28,7 @@ bool isPrime1(int n){
 
 bool isPrime2(int n){
     if(n!=2 and n%2 == 0) return false;
-    // BigO(sqrt(N)/2)
+    // T.C => BigO(sqrt(N)/2)
     for(int i=3 ; i<=sqrt(n); i+=2){
 
         if(n%i == 0){
@@ -71,6 +72,8 @@ int main(){
         cout<<"Not Prime"<<endl;
     }
 
+
+    //T.C => BigO(N^(3/2)/2)
     for(int i=2 ; i<=n ; i++){
         {
             if(isPrime2(i)){
