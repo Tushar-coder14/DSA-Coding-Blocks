@@ -15,7 +15,7 @@ class node{
 int LengthLL(node* head){
     int count = 0;
     while(head != NULL){
-        head = head -> next;
+        head = head -> next;  //head = *(head).next;
         count+=1;
     }
     return count;
@@ -65,8 +65,8 @@ void InsertAtMid(node* head , node* tail , int data , int pos){
 
 void PrintLL(node* head){
     while(head != NULL){
-        cout << head -> data <<"-->";
-        head = head -> next;
+        cout << head -> data <<"-->";  //cout<< *(head).data;
+        head = head -> next; // head = *(head).next;
     }
     cout<<"NULL"<<endl;
 }
