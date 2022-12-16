@@ -3,20 +3,20 @@ using namespace std;
 
 class Queue {
     public:
-    int *a , n, s, f, e;
+    int *a , n, cs, f, e;
     Queue(int si = 5){
         a = new int[si];
-        s = 0;
+        cs = 0;
         n = si;
         f = 0;
         e = n-1;
     }
 
     void push(int d) {
-        if(s<n){
-            e = (e+1)%n;
+        if(cs<n){
+            e = (e + 1) % n;
             a[e] = d;
-            s++;
+            cs++;
         }
         else{
             cout<<"Overflow\n";
@@ -24,9 +24,9 @@ class Queue {
     }
 
     void pop() {
-        if(s>0){
-            f = (f + 1)%n;
-            s--;
+        if(cs>0){
+            f = (f + 1) % n;
+            cs--;
         }
         else{
             cout<<"Underflow\n";
@@ -34,11 +34,11 @@ class Queue {
     }
 
     bool empty() {
-        return s == 0;
+        return cs == 0;
     }
 
     int size(){
-        return s;
+        return cs;
     }
 
     int front(){
@@ -47,12 +47,13 @@ class Queue {
 };
 
 int main(){
-    Queue q;
+    Queue q(6);
     q.push(1);
     q.push(2);
     q.push(3);
     q.push(4);
     q.push(5);
+    q.push(6);
 
     while(!q.empty()) {
         cout<<q.front()<<endl;
